@@ -56,12 +56,16 @@
       }
     })
   }
-
-  function playVideo(element) {
-    const video = element.querySelector('video');
-    video.play();
-  }  
-
+  function playFullScreen(videoElement) {
+    if (videoElement.requestFullscreen) {
+      videoElement.requestFullscreen();
+    } else if (videoElement.webkitRequestFullscreen) { /* Safari support */
+      videoElement.webkitRequestFullscreen();
+    } else if (videoElement.mozRequestFullScreen) { /* Firefox support */
+      videoElement.mozRequestFullScreen();
+    }
+  }
+  
   /**
    * Back to top button
    */
