@@ -20,6 +20,42 @@
     }
   }
 
+  const videoContainers = document.querySelectorAll('.video-container');
+
+  videoContainers.forEach(container => {
+    container.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent click event from propagating to document body
+      const videoSrc = container.dataset.videoSrc;
+      const videoElement = document.createElement('video');
+      videoElement.setAttribute('src', videoSrc);
+      videoElement.setAttribute('controls', true); // Add controls (optional)
+      videoElement.setAttribute('muted', true); // Optional: Mute by default
+      videoElement.setAttribute("loop", true); //
+  
+      // Styling for centered video
+      videoElement.style.position = 'fixed';
+      videoElement.style.top = '50%';
+      videoElement.style.left = '50%';
+      videoElement.style.transform = 'translate(-50%, -50%)'; /* Center the video */
+      videoElement.style.width = '60vw';
+      videoElement.style.height = '80vh';
+      videoElement.style.zIndex = '9999'; // Ensure it's above other elements
+      document.body.appendChild(videoElement);
+  
+      videoElement.play();
+  
+      // Add event listener to close video when clicking outside the container
+      const closeVideo = () => {
+        videoElement.pause(); // Pause the video
+        videoElement.remove(); // Remove the video element from the DOM
+        document.body.removeEventListener('click', closeVideo); // Remove the event listener
+      };
+  
+      // Add event listener to document body to close video when clicking outside
+      document.body.addEventListener('click', closeVideo);
+    });
+  });
+  
   /**
    * Easy event listener function
    */

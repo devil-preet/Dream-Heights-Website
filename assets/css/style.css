@@ -672,9 +672,9 @@ a:hover {
 
 .navbar-default.navbar-trans .nav-link,
 .navbar-default.navbar-reduce .nav-link {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #000000;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.03em;
   transition: all 0.1s ease-in-out;
   position: relative;
@@ -984,7 +984,7 @@ a:hover {
 # Hero Section
 --------------------------------------------------------------*/
 .intro {
-  height: 100vh;
+  height: 90vh;
   position: relative;
   color: #ffffff;
 }
@@ -1097,7 +1097,7 @@ a:hover {
 .intro .intro-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
-}
+}  
 
 @media (min-width: 768px) {
   .intro .intro-subtitle {
@@ -1546,7 +1546,7 @@ a:hover {
   }
 }
 
-.card-header-b .title-2 a {
+.card-header-b .title-2 {
   color: #ffffff;
   text-decoration: none;
 }
